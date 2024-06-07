@@ -32,14 +32,14 @@ public class KhachHang {
 
 	    // Assuming 'ID_ND' is a foreign key to another table 'ND' for example
 	    @Column(name = "ID_ND")
-	    private int idNd;
+	    private Long idNd;
 
 		public KhachHang() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
-		public KhachHang(int idKh, String tenKh, LocalDateTime ngayThamGia, int doanhSo, int diemTichLuy, int idNd) {
+		public KhachHang(int idKh, String tenKh, LocalDateTime ngayThamGia, int doanhSo, int diemTichLuy, Long idNd) {
 			super();
 			this.idKh = idKh;
 			this.tenKh = tenKh;
@@ -89,12 +89,12 @@ public class KhachHang {
 			this.diemTichLuy = diemTichLuy;
 		}
 
-		public int getIdNd() {
+		public Long getIdNd() {
 			return idNd;
 		}
 
-		public void setIdNd(int idNd) {
-			this.idNd = idNd;
+		public void setIdNd(Long long1) {
+			this.idNd = long1;
 		}
 	    
 	    

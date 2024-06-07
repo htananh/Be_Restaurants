@@ -60,6 +60,7 @@ public class AuthController {
         
         KhachHang kh = new KhachHang();
         kh.setTenKh(username);
+        kh.setIdNd(UserSaved.getId());
         khachHangRespository.save(kh);
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(email, password);
