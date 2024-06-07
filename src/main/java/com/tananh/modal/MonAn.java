@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 @Table(name = "Monan")
 public class MonAn {
 	 	@Id
-	    @Column(name = "ID_Monan")
+	    @Column(name = "ID_MonAn")
 	 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Integer idMonAn;
 
@@ -29,13 +29,19 @@ public class MonAn {
 	    
 	    @Column(name = "image")
 	    private String image;
+	    
+	    @Column(name = "Description")
+	    private String Description;
 
 		public MonAn() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
-		public MonAn(Integer idMonAn, String tenMon, Integer donGia, String loai, String trangThai, String image) {
+		
+
+		public MonAn(Integer idMonAn, String tenMon, Integer donGia, String loai, String trangThai, String image,
+				String description) {
 			super();
 			this.idMonAn = idMonAn;
 			this.tenMon = tenMon;
@@ -43,7 +49,22 @@ public class MonAn {
 			this.loai = loai;
 			this.trangThai = trangThai;
 			this.image = image;
+			Description = description;
 		}
+
+		
+
+		public String getDescription() {
+			return Description;
+		}
+
+
+
+		public void setDescription(String description) {
+			Description = description;
+		}
+
+
 
 		public Integer getIdMonAn() {
 			return idMonAn;

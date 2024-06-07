@@ -92,6 +92,7 @@ public class AuthController {
         userDto.setEmail(email);
         userDto.setMatkhau(password);
         userDto.setUsername(UserFinded.getUsername());
+        userDto.setVaitro(UserFinded.getVaiTro());
         AuthResponse authRes = new AuthResponse(token, true, userDto);
 
         return new ResponseEntity<>(authRes, HttpStatus.OK);
