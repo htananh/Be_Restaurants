@@ -4,10 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.tananh.modal.MonAn;
+import com.tananh.modal.HoaDon;
 
 @Repository
-public interface MonAnRepository extends JpaRepository<MonAn, Integer> {
-	@Query("SELECT MAX(m.idMonAn) FROM MonAn m")
-    Integer findLastMaMonAn();
+public interface HoaDonRespository extends JpaRepository<HoaDon, Long>{
+	@Query("SELECT MAX(h.idHoaDon) FROM HoaDon h")
+    Long findLastIdHoaDon();
 }

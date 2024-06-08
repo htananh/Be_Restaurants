@@ -7,7 +7,7 @@ public class UserDto {
     private String email;
     private String username;
     private String vaitro;
-    
+    private int idkh;
     
     
 	public UserDto() {
@@ -15,7 +15,10 @@ public class UserDto {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public UserDto(Integer id, String matkhau, String trangthai, String email, String username, String vaitro) {
+	
+
+	public UserDto(Integer id, String matkhau, String trangthai, String email, String username, String vaitro,
+			int idkh) {
 		super();
 		this.id = id;
 		this.matkhau = matkhau;
@@ -23,7 +26,22 @@ public class UserDto {
 		this.email = email;
 		this.username = username;
 		this.vaitro = vaitro;
+		this.idkh = idkh;
 	}
+
+	
+
+	public int getIdkh() {
+		return idkh;
+	}
+
+
+
+	public void setIdkh(int idkh) {
+		this.idkh = idkh;
+	}
+
+
 
 	public Integer getId() {
 		return id;

@@ -11,20 +11,19 @@ import jakarta.persistence.Table;
 @Table(name = "Monan")
 public class MonAn {
 	 	@Id
-	    @Column(name = "ID_MonAn")
-	 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	    @Column(name = "ID_Monan")
 	    private Integer idMonAn;
 
-	    @Column(name = "TenMon")
+	    @Column(name = "Tenmon")
 	    private String tenMon;
 
-	    @Column(name = "DonGia")
+	    @Column(name = "Dongia")
 	    private Integer donGia;
 
 	    @Column(name = "Loai")
 	    private String loai;
 
-	    @Column(name = "TrangThai")
+	    @Column(name = "Trangthai")
 	    private String trangThai;
 	    
 	    @Column(name = "image")

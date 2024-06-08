@@ -13,11 +13,11 @@ import jakarta.persistence.Table;
 @Table(name = "Khachhang")
 public class KhachHang {
 	 	@Id 
-	    @Column(name = "ID_KH")
+	    @Column(name = "id_kh")
 	 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private int idKh;
 
-	    @Column(name = "TenKH")
+	    @Column(name = "Tenkh")
 	    private String tenKh;
 
 	   

@@ -25,6 +25,8 @@ import com.tananh.response.AuthResponse;
 import com.tananh.respository.KhachHangRespository;
 import com.tananh.respository.UserResponsitory;
 import com.tananh.service.CustomUserDetailServiceImplementation;
+import com.tananh.service.KhachHangService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,6 +40,7 @@ public class AuthController {
     @Autowired JwtProvider jwtProvider;
     @Autowired KhachHangRespository khachHangRespository;
     @Autowired PasswordEncoder passwordEncoder;
+    @Autowired KhachHangService khachHangService;
 
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> createHanderUser(@RequestBody RegisterRequest user) throws UserException {
@@ -73,7 +76,7 @@ public class AuthController {
         userDto.setMatkhau(password);
         userDto.setUsername(username);
         userDto.setVaitro(UserSaved.getVaiTro());
-
+        userDto.setIdkh(kh.getIdKh());
         AuthResponse authRes = new AuthResponse(token, true, userDto);
 
         return new ResponseEntity<>(authRes, HttpStatus.CREATED);
@@ -88,12 +91,20 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String token = jwtProvider.genarateToken(authentication);
-
+//        System.out.println(UserFinded.getId());
+        
         UserDto userDto = new UserDto();
         userDto.setEmail(email);
         userDto.setMatkhau(password);
         userDto.setUsername(UserFinded.getUsername());
         userDto.setVaitro(UserFinded.getVaiTro());
+        System.out.println(UserFinded.getVaiTro());
+        if("Khach Hang".equals(UserFinded.getVaiTro()))
+        {
+        	int idkh = khachHangService.getIdkhFromIdnd(UserFinded.getId());
+        	 System.out.println(idkh);
+        	userDto.setIdkh(idkh);
+        }
         AuthResponse authRes = new AuthResponse(token, true, userDto);
 
         return new ResponseEntity<>(authRes, HttpStatus.OK);
